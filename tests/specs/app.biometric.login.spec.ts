@@ -10,6 +10,7 @@ import { BUNDLE_ID, PACKAGE_NAME } from '../helpers/Constants.js';
  * IMPORTANT!
  * To verify if Touch/FaceID for iOS and FingerPrint for Android work we need to verify if they are enabled. This can be done by verifying
  * if the biometrics button is shown. If not shown we need to enabled it.
+ *
  * For iOS it's pretty straightforward, but for Android is more complex. There is a helper (Android Settings) that will handle all steps for
  * you for Android 9.0 (2018) till the latest version of Android.
  */

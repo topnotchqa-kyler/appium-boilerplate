@@ -45,25 +45,24 @@ npm install
 > You don't need Appium installed on you local machine When running test in a cloud
 
 3. Create a `./apps` directory at the root of this project. Download the app files (`.zip` / `.apk`) with version >= `1.0.0`, which can be found [here](https://github.com/webdriverio/native-demo-app/releases), into the `./apps` folder.
-
 4. Adjust the configuration file(s) for [Android](./config/wdio.android.app.conf.ts) and [iOS](./config/wdio.ios.app.conf.ts) regarding the device configuration you've created on your local machine.
-
 5. Running tests locally
-    - **Android App:** `npm run android.app`
-    - **Android Browser:**  `npm run android.browser`
-    - **iOS App:** `npm run ios.app`
-    - **iOS Browser:**  `npm run ios.browser`
-    - **Android App with cucumber:** `npm run android.app.cucumber`
+
+   - **Android App:** `npm run android.app`
+   - **Android Browser:**  `npm run android.browser`
+   - **iOS App:** `npm run ios.app`
+   - **iOS Browser:**  `npm run ios.browser`
+   - **Android App with cucumber:** `npm run android.app.cucumber`
 
 ## How to implement in your project
 
 Choose one of the following options:
 
 1. Clone the git repo — `git clone https://github.com/webdriverio/appium-boilerplate.git`
-1. Copy the files to your project directory (all files in `/tests` and the `wdio.conf` files in the `config` folder)
-1. Merge project dev dependencies with your project dev dependencies in your `package.json`
-1. Merge the scripts to your `package.json` scripts
-1. Run the tests, see [Native App Tests](#native-app-tests) or [Automating Chrome of Safari](#automating-chrome-or-safari).
+2. Copy the files to your project directory (all files in `/tests` and the `wdio.conf` files in the `config` folder)
+3. Merge project dev dependencies with your project dev dependencies in your `package.json`
+4. Merge the scripts to your `package.json` scripts
+5. Run the tests, see [Native App Tests](#native-app-tests) or [Automating Chrome of Safari](#automating-chrome-or-safari).
 
 ## Configuration files
 
@@ -173,7 +172,7 @@ npm run ios.app -- --spec=tests/specs/app.biometric.login.spec.ts
 There are 2 types of navigation tests explained in this boilerplate.
 
 1. [Tab Bar](./tests/specs/app.tab.bar.navigation.spec.ts)
-1. [Deep Links](./tests/specs/app.deep.link.navigation.spec.ts)
+2. [Deep Links](./tests/specs/app.deep.link.navigation.spec.ts)
 
 The most interesting test here will be the [Deep Links](./tests/specs/app.deep.link.navigation.spec.ts) because this might speed up your tests if your app supports Deep Links. Check the code and the `openDeepLinkUrl()` method in the [`Utils.ts`](./tests/helpers/Utils.ts) file to see how this works.
 
@@ -199,8 +198,8 @@ npm run ios.app -- --spec=tests/specs/app.deep.link.navigation.spec.ts
 Swiping is a movement with your finger on the screen that has a starting position on the screen, an x-, and y-coordinate and an end position, also an x-, and y-coordinate. The starting position can be seen as the first time you touch the screen, the initial *press*. The end position can be seen as the time you release the screen. If you translate this into steps you will get:
 
 1. Press your finger on the screen in the starting position
-1. Move your finger to the end position
-1. Release your finger when you are in the end position
+2. Move your finger to the end position
+3. Release your finger when you are in the end position
 
 The [Swipe](./tests/specs/app.swipe.spec.ts) test will be an example of how to do that. It uses a [Gesture](./tests/helpers/Gestures.ts)-helper that might be useful for you in the future.
 
@@ -222,31 +221,32 @@ The app has a WebView that will automatically load the WebdriverIO documentation
 
 1. [Interact within a WebView with CSS Selectors](./tests/specs/app.webview.spec.ts).
    *You will also find a test that interacts between a WebView and the Native part of the app.*
-1. [Automate a WebView based on Native Selectors](./tests/specs/app.webview.xpath.spec.ts). This test will compare the execution time of:
 
-    - automating the WebView by **NOT** switching to the WebView (by using native selectors).
-    - automating the WebView by **SWITCHING** to the WebView.
+2. [Automate a WebView based on Native Selectors](./tests/specs/app.webview.xpath.spec.ts). This test will compare the execution time of:
 
-    Check the console for load time differences. An example time could look like this
+- automating the WebView by **NOT** switching to the WebView (by using native selectors).
+- automating the WebView by **SWITCHING** to the WebView.
 
-    ```log
-    // Android
-    [0-0] RUNNING in Android - /tests/specs/app.webview.xpath.spec.ts
-    [0-0] Test time for using XPATH It took 0.799 seconds.
-    [0-0] Test time for switching to the WebView It took 0.238 seconds.
-    [0-0] PASSED in Android - /tests/specs/app.webview.xpath.spec.ts
+Check the console for load time differences. An example time could look like this
 
-    // iOS
-    [0-0] RUNNING in iOS - /tests/specs/app.webview.xpath.spec.ts
-    [0-0] Test time for using XPATH It took 3.125 seconds.
-    [0-0] Test time for switching to the WebView It took 1.443 seconds.
-    [0-0] PASSED in iOS - /tests/specs/app.webview.xpath.spec.ts
-    ```
+```log
+// Android
+[0-0] RUNNING in Android - /tests/specs/app.webview.xpath.spec.ts
+[0-0] Test time for using XPATH It took 0.799 seconds.
+[0-0] Test time for switching to the WebView It took 0.238 seconds.
+[0-0] PASSED in Android - /tests/specs/app.webview.xpath.spec.ts
+
+// iOS
+[0-0] RUNNING in iOS - /tests/specs/app.webview.xpath.spec.ts
+[0-0] Test time for using XPATH It took 3.125 seconds.
+[0-0] Test time for switching to the WebView It took 1.443 seconds.
+[0-0] PASSED in iOS - /tests/specs/app.webview.xpath.spec.ts
+```
 
 You will also find a [WebView](./tests/helpers/WebView.ts) helper with hopefully useful methods that can help you automate a Hybrid App.
 Keep in the back of your mind that for the _simplicity_ of the Demo app, only one WebView is used. This is also used in the WebView-helper.
 
-More information about **Automating Hybrid Applications with Appium** and more complex WebViews can be found in [this webinar](https://youtu.be/_mPCRxplBfo) recording.
+More information about __Automating Hybrid Applications with Appium__ and more complex WebViews can be found in [this webinar](https://youtu.be/_mPCRxplBfo) recording.
 
 You can run the single test with the following commands
 
@@ -286,7 +286,7 @@ When the above has been executed you can follow the steps:
 
 Make sure you install the latest version of the `@wdio/sauce-service` with
 
-```shell
+```sh
 npm install --save-dev @wdio/sauce-service
 ```
 
@@ -355,7 +355,7 @@ This boilerplate provides a setup for testing with BrowserStack. Please check th
 
 Make sure you install the latest version of the `@wdio/browserstack-service` with:
 
-```shell
+```sh
 npm install --save-dev @wdio/browserstack-service
 ```
 
@@ -375,7 +375,7 @@ This boilerplate provides a setup for testing with TestingBot. Please check the 
 
 Make sure you install the latest version of the `@wdio/testingbot-service` with
 
-```shell
+```sh
 npm install --save-dev @wdio/testingbot-service
 ```
 

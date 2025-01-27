@@ -24,7 +24,7 @@ export const config: WebdriverIO.Config = {
 
             //
             // NOTE: Change this name according to the Emulator you have created on your local machine
-            "appium:deviceName": "Pixel_8_Pro_Android_15_API_35",
+            "appium:deviceName": "Pixel_9_API_35",
             //
             // NOTE: Change this version according to the Emulator you have created on your local machine
             "appium:platformVersion": "15.0",

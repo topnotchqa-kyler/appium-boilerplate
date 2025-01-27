@@ -20,7 +20,7 @@ export const config: WebdriverIO.Config = {
         {
             // The defaults you need to have in your config
             platformName: "iOS",
-            "wdio:maxInstances": 1,
+            "wdio:maxInstances": 2,
             // For W3C the appium capabilities need to have an extension prefix
             // This is `appium:` for all Appium Capabilities which can be found here
             // http://appium.io/docs/en/writing-running-appium/caps/
