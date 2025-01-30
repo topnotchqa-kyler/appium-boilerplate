@@ -72,6 +72,9 @@ export async function openDeepLinkUrl(url:string) {
     // Wait for the notification and accept it
     // When using an iOS simulator you will only get the pop-up once, all the other times it won't be shown
     try {
+        // await driver.pause(2000);
+        // const pageSource = await driver.getPageSource();
+        // console.log(pageSource); // Examine the page source for the popup's elements
         const openSelector = 'type == \'XCUIElementTypeButton\' && name CONTAINS \'Open\'';
         const openButton = $(`-ios predicate string:${ openSelector }`);
         // Assumption is made that the alert will be seen within 2 seconds, if not it did not appear

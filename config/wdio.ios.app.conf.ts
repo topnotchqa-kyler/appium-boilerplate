@@ -10,6 +10,12 @@ export const config: WebdriverIO.Config = {
     // Specs
     // ============
     specs: ["../tests/specs/**/app*.spec.ts"],
+    suites: {
+        login: [
+            '../tests/specs/app.biometric.login.spec.ts',
+            '../tests/specs/app.login.spec.ts'
+        ]
+    },
 
     // ============
     // Capabilities
@@ -20,7 +26,7 @@ export const config: WebdriverIO.Config = {
         {
             // The defaults you need to have in your config
             platformName: "iOS",
-            "wdio:maxInstances": 2,
+            "wdio:maxInstances": 1,
             // For W3C the appium capabilities need to have an extension prefix
             // This is `appium:` for all Appium Capabilities which can be found here
             // http://appium.io/docs/en/writing-running-appium/caps/
@@ -43,6 +49,8 @@ export const config: WebdriverIO.Config = {
             "appium:newCommandTimeout": 240,
             // This is needed to wait for the webview context to become available
             "appium:webviewConnectTimeout": 5000,
+            // Auto accept alerts
+            "appium:autoAcceptAlerts":true,
         },
     ],
 };
